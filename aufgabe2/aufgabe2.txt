@@ -1,0 +1,28 @@
+
+Die Voltage-Clamp-Technik wird verwendet, um das Verhalten der Ionenkanäle zu untersuchen. Hierbei wird die Transmembranspannung auf einen vorgegebenen Wert eingestellt (voltage steps, Sprungspannung) und der als Antwort auf den Spannungssprung auftretende Strom wird gemessen und analysiert.
+Im Gegensatz zu Aufgabe 1 spielt hierbei jetzt auch die zeitliche Dynamik eine Rolle.
+Untersuchen Sie das Verhalten des Kaliumstroms I_K und des Natriumstroms I_Na mittels der Voltage-Clamp-Technik, bei der folgendes Protokoll benutzt wird:
+• Spannungsstartwert: -65mV für t im Intervall [0;0,3]ms
+• Sprungspannung: von -100mV bis +40mV, Schrittweite: 10mV
+• Haltedauer der Sprungspannung: 7ms, d.h. im Intervall (0,3;7,3]ms
+• Spannungsendwert: -110 mV für 2,7ms, d.h. im Intervall (7,3;10]ms
+• Definitionslücken der Raten sollen mit dem Wert 1 abgefangen werden!
+ 
+Für jeden Spannungssprung sollen die DGLs gelöst werden, die die Zeitabhängigkeiten der Gatingvariablen beschreiben. Verwenden Sie dazu das explizite Euler-Ein-Schritt-Verfahren, das Sie selbst implementieren sollen. Nutzen Sie dazu nicht die in Matlab integrierten ODE-Löser.
+
+    * Der Wert von n, m und h im ersten Zeitschritt soll n_0, m_0 und h_0 entsprechen.
+    * Berechnen Sie die Ströme mit den Werten der Gatingvariablen im aktuellen Zeitschritt
+    * Berechnen Sie die Übergangsraten und die zeitliche Ableitung der Gatingvariablen basierend auf dem Wert der Transmembranspannung Vm im aktuellen Zeitschritt
+    * Berechnen Sie den Wert der Gatingvariablen für den nächsten Zeitschritt mittels des Euler-Ein-Schritt-Verfahrens basierend auf der im aktuellen Zeitschritt berechneten zeitlichen Ableitung der Gatingvariablen. 
+
+Es gilt: 
+E_K = −88mV
+E_Na = 50mV
+G_K_max = 36mS
+G_Na_max = 120mS
+n_0 = 0.32
+m_0 = 0.053
+h_0 = 0.6
+dt = 0.0005ms
+Stellen Sie den Zeitverlauf der Ratenkonstanten α_n, β_n, α_m, β_m, α_h, β_h, der Gatingvariablen n, m, h für die Clampspannung +30mV und den Verlauf der Ströme I_K und I_Na für alle Clampspannungen graphisch dar.
+ 

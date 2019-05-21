@@ -1,0 +1,25 @@
+
+Ein Aktionspotential kann ausgelöst werden, wenn die Transmembranspannung einen Schwellwert erreicht, z.B. durch Stimulation mit einem externen Strom.
+Wie sieht die Gleichung für die Transmembranspannung nach Hodgkin-Huxley aus? Implementiern Sie diese Gleichung in Ihr Programm und stimulieren das System mit einem externem Stimulus I_Stim = -25μA und einer Stimulationsdauer tstim = 1ms im Zeitintervall [0ms,1ms]. Stellen Sie den Zeitverlauf der Gatingvariablen n, m und h, der Ströme I_K, I_Na und der Transmembranspannung Vm graphisch dar.
+Für jeden Zeitschritt sollen die DGLs gelöst werden, die die Zeitabhängigkeiten der Gatingvariablen und der Transmembranspannung beschreiben. Verwenden Sie dazu das explizite Euler-Ein-Schritt-Verfahren, das Sie selbst implementieren sollen. Nutzen Sie dazu nicht die in Matlab integrierten ODE-Löser.
+
+    * Der Wert von n, m, h und Vm im ersten Zeitschritt soll n_0, m_0, h_0 und Vm_0 entsprechen.
+    * Berechnen Sie die Ströme mit den Werten der Gatingvariablen und Transmembranspannung im aktuellen Zeitschritt
+    * Berechnen Sie die Übergangsraten und die zeitliche Ableitung der Gatingvariablen basierend auf dem Wert der Transmembranspannung Vm im aktuellen Zeitschritt
+    * Berechnen Sie den Wert der Gatingvariablen und Transmembranspannung für den nächsten Zeitschritt mittels des Euler-Ein-Schritt-Verfahrens basierend auf der im aktuellen Zeitschritt berechneten zeitlichen Ableitung der Gatingvariablen und der berechneten Stöme. 
+
+Es gilt: 
+E_K = −88mV
+E_Na = 50mV
+E_L = −54.387mV
+ 
+G_K_max = 36mS
+G_Na_max = 120mS
+G_L = 0.3mS
+n_0 = 0.32
+m_0 = 0.053
+h_0= 0.6
+Vm_0= -65mV
+C_m =1μF
+dt = 0.0005ms
+ 

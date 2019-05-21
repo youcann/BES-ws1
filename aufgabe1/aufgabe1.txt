@@ -1,0 +1,8 @@
+
+Gating-Variablen beschreiben die Offenwahrscheinlichkeit der Gates eines Ionenkanals. Abhängig davon verändert sich die Leitfähigkeit des Kanals. Die Gatingvariablen sind zeit- und spannungsabhängig.
+Durch welche Gleichungen werden die Spannungs- und Zeitabhängigkeit nach Hodgkin-Huxley beschrieben?
+Implementieren Sie die Gleichung für die Spannungsabhängigkeit in Matlab wie folgt:
+• Benutzen Sie eine for-Schleife, die 15 äquidistant verteilte Spannungswerte von -100 mV bis +40 mV untersucht.
+• Berechnen Sie für jede Spannung die Ratenkonstanten von Kalium und Natrium: α_n, β_n,α_m, β_m, α_h, β_h. Benutzen Sie dazu die Formeln aus der Vorlesung. Fangen Sie etwaige Definitionslücken mit dem Wert 1 für die jeweilige Ratenkonstante ab!
+• Stellen Sie die Ergebnisse in einem Diagramm dar.
+ 
