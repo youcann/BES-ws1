@@ -1,0 +1,71 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+xmin=0,
+xmax=10,
+xlabel style={font=\color{white!15!black}},
+xlabel={Time (ms)},
+ymin=0,
+ymax=50,
+ylabel style={font=\color{white!15!black}},
+ylabel={Rate constants (1/ms)},
+axis background/.style={fill=white},
+legend style={legend cell align=left, align=left, draw=white!15!black},
+legend pos = north east
+]
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+0	0.223563724584631\\
+0.300000000000001	0.223563724584631\\
+0.303000000000001	7.00638899977255\\
+7.3	7.00638899977255\\
+7.303	0.00638899977255214\\
+10	0.00638899977255214\\
+};
+\addlegendentry{$\alpha_m$}
+
+\addplot [color=red]
+  table[row sep=crcr]{%
+0	4\\
+0.299999999999997	4\\
+0.302999999999997	0.020415039555175\\
+7.3	0.020415039555175\\
+7.303	48.7299758428139\\
+10	48.7299758428139\\
+};
+\addlegendentry{$\beta_m$}
+
+\addplot [color=mycolor2]
+  table[row sep=crcr]{%
+0	0.0700000000000003\\
+0.300000000000001	0.0700000000000003\\
+0.303000000000001	0.00060561866421871\\
+7.3	0.00060561866421871\\
+7.303	0.664141508545097\\
+10	0.664141508545097\\
+};
+\addlegendentry{$\alpha_h$}
+
+\addplot [color=mycolor3]
+  table[row sep=crcr]{%
+0	0.0474258731775663\\
+0.300000000000001	0.0474258731775663\\
+0.303000000000001	0.998498817743263\\
+7.3	0.998498817743263\\
+7.303	0.000552778636922824\\
+10	0.000552778636922824\\
+};
+\addlegendentry{$\beta_h$}
+
+\end{axis}
+\end{tikzpicture}%

@@ -1,0 +1,206 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor6}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor7}{rgb}{0.63500,0.07800,0.18400}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+xmin=-2000,
+xmax=20000,
+ymin=-120,
+ymax=50,
+axis background/.style={fill=white},
+legend style={legend cell align=left, align=left, draw=white!15!black},
+ytick distance=10,
+xlabel={Time (ms)},
+ylabel={Transmembrane Voltage $V_m \;$ (mV)},
+]
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-100\\
+14601	-100\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor2]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-90\\
+14601	-90\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor3]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-80\\
+14601	-80\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor4]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-70\\
+14601	-70\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor5]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-60\\
+14601	-60\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor6]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-50\\
+14601	-50\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor7]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-40\\
+14601	-40\\
+14602	-110\\
+20001	-110\\
+};
+
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-30\\
+14601	-30\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor2]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-20\\
+14601	-20\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor3]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	-10\\
+14601	-10\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor4]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	0\\
+14601	0\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor5]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	10\\
+14601	10\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor6]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	20\\
+14601	20\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor7]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	30\\
+14601	30\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+1	-65\\
+601	-65\\
+602	40\\
+14601	40\\
+14602	-110\\
+20001	-110\\
+};
+
+
+\end{axis}
+
+\begin{axis}[%
+xmin=0,
+xmax=1,
+ymin=0,
+ymax=1,
+axis line style={draw=none},
+ticks=none,
+axis x line*=bottom,
+axis y line*=left,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\end{axis}
+\end{tikzpicture}

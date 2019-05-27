@@ -1,0 +1,66 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+xmin=-100,
+xmax=40,
+xlabel style={font=\color{white!15!black}},
+xlabel={Transmembrane voltage $V_m \;$ (mV)},
+ymin=0,
+ymax=30,
+ylabel style={font=\color{white!15!black}},
+ylabel={Rate constants (1/ms)},
+axis background/.style={fill=white},
+legend style={legend cell align=left, align=left, draw=white!15!black},
+legend pos=outer north east
+]
+\addplot [color=red, mark=x, mark options={solid, red}]
+  table[row sep=crcr]{%
+-100	0.0149094699410675\\
+-90	0.0339182745315212\\
+-80	0.0746294414550962\\
+-70	0.157187089473768\\
+-60	0.313035285499331\\
+-50	0.581976706869326\\
+-40	1\\
+-30	1.58197670686933\\
+-20	2.31303528549933\\
+-10	3.15718708947377\\
+0	4.0746294414551\\
+10	5.03391827453152\\
+20	6.01490946994107\\
+30	7.00638899977255\\
+40	8.00268460160673\\
+};
+\addlegendentry{$\alpha_m$}
+\node[,draw=gray,fill=gray,inner sep=2pt] at (axis cs:-40,1) {};
+
+\addplot [color=mycolor1, mark=x, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+-100	27.9589903322669\\
+-90	16.041566343503\\
+-80	9.2039035635713\\
+-70	5.28077115373648\\
+-60	3.02986051358787\\
+-50	1.73839283402831\\
+-40	0.997408835109185\\
+-30	0.572266731017633\\
+-20	0.328339994495595\\
+-10	0.188386195006758\\
+0	0.108087223804836\\
+10	0.0620154143960373\\
+20	0.0355815561481758\\
+30	0.0204150395551769\\
+40	0.0117131987792728\\
+};
+\addlegendentry{$\beta_m$}
+
+\end{axis}
+\end{tikzpicture}%

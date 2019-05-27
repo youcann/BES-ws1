@@ -1,0 +1,20 @@
+\begin{tikzpicture}[]
+	%\draw[gray!20] (0,0) grid (6,6);
+	
+	\draw (1,3) to[vR=$g_{Na}$,i<^=$I_{Na}$] (1,6);
+	\draw (1,3) to[battery1=$E_{Na}$] (1,1);
+	\draw (3,3) to[vR=$g_{K}$,i<^=$I_K$] (3,6);
+	\draw (3,3) to[battery1=$E_{K}$,-*] (3,1);
+	\draw (5,3) to[R=$g_{L}$,i<^=$I_L$,-*] (5,6);
+	\draw (5,3) to[battery1=$E_{L}$,-*] (5,1);
+
+	\draw (7,6) to[C=$C_m$,*-*] (7,1);
+
+	\draw (1,1) to[short, -o] (9,1);
+	\draw (1,6) to[short, -o] (9,6);
+
+	\draw (3,6)  to[short, *-,i<=$I_{Inter}$] (3,7);
+	\draw (3,0.5)  node[ground] {} -- (3,1);
+
+	\draw (8.5,6) to[open, v^=$V_m$] (8.5,1);
+\end{tikzpicture}

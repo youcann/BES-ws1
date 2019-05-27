@@ -1,0 +1,357 @@
+\documentclass[12pt,a4paper,noendnumber=true]{scrartcl}
+%german umlauts and localization
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+%figures etc.
+\usepackage[pdftex]{graphicx}
+\usepackage{standalone} %externalize files for faster compilation
+\usepackage{subcaption}
+\usepackage{float}
+
+%mathematical symbols
+\usepackage{latexsym} % special symbols 
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{textcomp} % supports the Text Companion fonts, which provide many text symbols (such as baht, bullet, copyright, musicalnote, onequarter, section, and yen)
+%fonts:
+%\usepackage{txfonts}  %supplies virtual text roman fonts using Adobe Times % needs to be loaded AFTER amsmath (because otherwise \iint is defined twice)
+\usepackage{mathrsfs}  % for script-like fonts in math mode
+\usepackage{nicefrac} % nice fracs in text
+
+%\usepackage{libertine}
+%\usepackage[libertine]{newtxmath}
+%\usepackage[sc]{mathpazo}
+%\linespread{1.05}
+
+%tables
+\usepackage{tabularx}
+
+%units
+\usepackage{siunitx}
+
+%tikz
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{pgfplots} 
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\usepackage[european]{circuitikz}
+\pgfplotsset{compat=newest} 
+\pgfplotsset{plot coordinates/math parser=false}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.symbols,shadows}
+
+
+%bib stuff
+\usepackage[draft = false]{hyperref}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=ieee]{biblatex}
+%\addbibresource{bib.bib}
+
+
+% gescheiter Abstand nach paragraph
+\newcommand{\properparagraph}[1]{\paragraph{#1}\mbox{}\\}
+\usepackage[parfill]{parskip}
+
+% für die Auflistung von Vor- und Nachteilen in itemize-Umgebung
+\newcommand\pro{\item[$+$]}
+\newcommand\con{\item[$-$]}
+
+%nice row vector
+\newcommand{\rvect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+%align multi pgfplots
+\pgfplotsset{yticklabel style={text width=3em,align=right}}
+
+%matlab listings
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\lstset{language=Matlab,%
+	%basicstyle=\color{red},
+	breaklines=true,%
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},%
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},%
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},%
+	showstringspaces=false,%without this there will be a symbol in the places where there is a space
+	numbers=left,%
+	numberstyle={\tiny \color{black}},% size of the numbers
+	numbersep=9pt, % this defines how far the numbers are from the text
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},
+	tabsize=2,
+	basicstyle=\small,
+	inputencoding=latin1    
+}
+
+\usetikzlibrary{external}
+\tikzexternalize[optimize=false,prefix=tikz/] % activate!
+
+
+
+\title{Workshop 1}
+\subtitle{Bioelektrische Signale - Axel Loewe}
+%\author{Marvin Noll}
+\date{24.05.2019}
+
+
+\begin{document}
+\maketitle
+
+\section{Aufgabe 1}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{hh.tikz}
+\end{figure}
+
+\begin{subequations}
+	\begin{align*}
+		\alpha_n &= 0.01 \, \left( - \frac{V_m+55}{\exp\left(-\frac{V_m+55}{10}\right)-1} \right)\\
+		\beta_n &= 0.125 \, \exp \left( - \frac{V_m+65}{80} \right)\\[3ex]
+		\alpha_m &= 0.1 \, \left( - \frac{V_m+40}{\exp(-\frac{V_m+40}{10})-1} \right) \\
+		\beta_m &= 4 \, \exp \left( - \frac{V_m+65}{18} \right)\\[3ex]
+		\alpha_h &= 0.07 \, \exp \left( - \frac{V_m+65}{20} \right)\\
+		\beta_h &= \frac{1}{\exp \left( - \frac{V_m+35}{10} \right)+1}
+	\end{align*}
+\end{subequations}
+
+\begin{equation*}
+	V_m= \rvect{-100 & -90 & \ldots & -40 & \ldots & 30 & 40}
+\end{equation*}
+
+\begin{equation*}
+	\alpha_m(V_m)\vert_{V_m=\SI{-40}{\milli\volt}} = \text{undef.}
+\end{equation*}
+
+\begin{equation*}
+	\alpha_m(\SI{-40}{\milli\volt}) := \lim\limits_{V_m \to \SI{-40}{\milli\volt}} = 1
+\end{equation*}
+
+\begin{figure}[H]
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.35\textwidth]{plots/a1_n.tikz}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.35\textwidth]{plots/a1_m.tikz}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.35\textwidth]{plots/a1_h.tikz}
+	\end{subfigure}
+	\caption{Übergangsraten $\alpha$ und $\beta$ für $n$, $m$ und $h$}
+\end{figure}
+
+\begin{lstlisting}
+clampVoltages = linspace(-100,40,15);
+
+nVoltages = length(clampVoltages); % Anzahl an Clampspannungen
+alpha_n   = zeros(nVoltages, 1); 
+beta_n    = zeros(nVoltages, 1);
+alpha_m   = zeros(nVoltages, 1);
+beta_m    = zeros(nVoltages, 1);
+alpha_h   = zeros(nVoltages, 1);
+beta_h    = zeros(nVoltages, 1);
+
+for iVoltage = 1:nVoltages
+	alpha_n(iVoltage) = 0.01*(-(clampVoltages(iVoltage)+55)/(exp(-(clampVoltages(iVoltage)+55)/(10))-1));
+	beta_n(iVoltage)  = 0.125*exp(-(clampVoltages(iVoltage)+65)/(80));
+	
+	alpha_m(iVoltage) = 0.1*(-(clampVoltages(iVoltage)+40)/(exp(-(clampVoltages(iVoltage)+40)/(10))-1));        
+	beta_m(iVoltage)  = 4*exp(-(clampVoltages(iVoltage)+65)/(18));
+	
+	alpha_h(iVoltage) = 0.07*exp(-(clampVoltages(iVoltage)+65)/(20));
+	beta_h(iVoltage)  = 1/(exp(-(clampVoltages(iVoltage)+35)/(10))+1);
+end
+alpha_n(isnan(alpha_n))=1;
+beta_n(isnan(beta_n))  =1;
+alpha_m(isnan(alpha_m))=1;
+beta_m(isnan(beta_m))  =1;
+alpha_h(isnan(alpha_h))=1;
+beta_h(isnan(beta_h))  =1;
+\end{lstlisting}
+
+
+
+
+
+
+\section{Aufgabe 2}
+
+\begin{subequations}
+	\begin{align*}
+	I_K &= \bar{G}_K \cdot n^4 \; (V_m-E_K) \\
+	I_{Na} &= \bar{G}_{Na} \cdot m^3 \; h \; (V_m-E_{Na}) 
+	\end{align*}
+\end{subequations}
+
+\begin{equation*}
+	\begin{array}{r@{\ }c@{\ }l}
+	\dot{n}= & \alpha_n \; (1-n) &- \, \beta_n \cdot n \\
+	\dot{m}= & \alpha_m \; (1-m) &- \, \beta_m \cdot m \\
+	\dot{h}= & \alpha_h \; (1-h) &- \, \beta_h \cdot h 
+	\end{array}
+\end{equation*}
+
+\begin{subequations}
+	\begin{align*}
+	n_{i+1} &= n_i + \Delta t \cdot \dot{n}_i \\ 
+	m_{i+1} &= m_i + \Delta t \cdot \dot{m}_i \\
+	h_{i+1} &= h_i + \Delta t \cdot \dot{h}_i 
+	\end{align*}
+\end{subequations}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{plots/a2_Vm.tikz}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.45\textwidth]{plots/a2_K_1.tikz}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.45\textwidth]{plots/a2_K_2.tikz}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.45\textwidth]{plots/a2_K_3.tikz}
+	\end{subfigure}
+	\caption{Kalium}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.45\textwidth]{plots/a2_Na_1.tikz}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.45\textwidth]{plots/a2_Na_2.tikz}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,height=0.45\textwidth]{plots/a2_Na_3.tikz}
+	\end{subfigure}
+	\caption{Natrium}
+\end{figure}
+
+\begin{lstlisting}
+% Konstanten
+G_K_max    = 36;     % Maximale Kalium-Leitfaehigkeit (mS)
+G_Na_max   = 120;    % Maximale Natrium-Leitfaehigkeit (mS)
+
+% Spannungen (Nernstspannungen koennen als konstant betrachtet werden)
+E_K        =  -88;   % Nernstsspannung für Kalium (mV) 
+E_Na       =   50;   % Nernstsspannung für Natrium (mV)
+VpreStep   =  -65;   % Spannung vor Sprung (mV)
+VpostStep  = -110;   % Spannung nach Sprung (mV)
+
+clampVoltages = -100:10:40; % Protokoll fuer Voltageclamp (mV)
+
+% Initialisiserung
+n_0        = 0.32;
+m_0        = 0.053;
+h_0        = 0.6;
+
+% Zeit
+deltat     = 0.0005; %Zeitschritt (ms)
+tend       = 10;     %Ende der Berechnung (ms)
+timesteps  = 0:deltat:tend;
+
+% Preallokation der Matrix fuer die Raten, Gates, Stroeme, und Spannung
+nVoltages  = length(clampVoltages);
+nTimesteps = length(timesteps);
+alpha_n    = zeros(nVoltages, nTimesteps); 
+beta_n     = zeros(nVoltages, nTimesteps); 
+n          = zeros(nVoltages, nTimesteps); 
+ndot       = zeros(nVoltages, nTimesteps);
+I_K        = zeros(nVoltages, nTimesteps); 
+alpha_m    = zeros(nVoltages, nTimesteps); 
+beta_m     = zeros(nVoltages, nTimesteps); 
+m          = zeros(nVoltages, nTimesteps); 
+mdot       = zeros(nVoltages, nTimesteps); 
+alpha_h    = zeros(nVoltages, nTimesteps); 
+beta_h     = zeros(nVoltages, nTimesteps); 
+h          = zeros(nVoltages, nTimesteps); 
+hdot       = zeros(nVoltages, nTimesteps); 
+I_Na       = zeros(nVoltages, nTimesteps);
+%Startwerte
+n(:,1)     = n_0*ones(1,nVoltages);
+m(:,1)     = m_0*ones(1,nVoltages);
+h(:,1)     = h_0*ones(1,nVoltages);
+
+%% Simulation
+% Berechne Raten, Gates (Euler-1-Schritt), I_K und I_Na
+for iVoltage=1:nVoltages
+	for iTimestep=1:nTimesteps
+		%Vm
+		if (timesteps(iTimestep)<=0.3)
+			Vm_current=VpreStep;
+		elseif (timesteps(iTimestep)>0.3 && timesteps(iTimestep)<=7.3)
+			Vm_current=clampVoltages(iVoltage);    
+		elseif (timesteps(iTimestep)>7.3 && timesteps(iTimestep)<=10)
+			Vm_current=VpostStep;   
+		else
+			Vm_current=NaN;   
+		end
+		
+		% Kalium
+		I_K(iVoltage,iTimestep) = G_K_max * n(iVoltage,iTimestep).^4 * (Vm_current-E_K);
+		
+		% Natrium
+		I_Na(iVoltage,iTimestep) = G_Na_max * m(iVoltage,iTimestep).^3 * h(iVoltage,iTimestep) * (Vm_current-E_Na);
+		
+		%Uebergangsraten
+		alpha_n(iVoltage,iTimestep) = 0.01*(-(Vm_current+55)/(exp(-(Vm_current+55)/(10))-1));
+		if(isnan(alpha_n(iVoltage,iTimestep))) alpha_n(iVoltage,iTimestep) = 1; end
+		beta_n(iVoltage,iTimestep) = 0.125*exp(-(Vm_current+65)/(80));
+		if(isnan(beta_n(iVoltage,iTimestep))) beta_n(iVoltage,iTimestep) = 1; end
+		
+		alpha_m(iVoltage,iTimestep) = 0.1*(-(Vm_current+40)/(exp(-(Vm_current+40)/(10))-1));
+		if(isnan(alpha_m(iVoltage,iTimestep))) alpha_m(iVoltage,iTimestep) = 1; end
+		beta_m(iVoltage,iTimestep) = 4*exp(-(Vm_current+65)/(18));
+		if(isnan(beta_m(iVoltage,iTimestep))) beta_m(iVoltage,iTimestep) = 1; end
+		
+		alpha_h(iVoltage,iTimestep) = 0.07*exp(-(Vm_current+65)/(20));
+		if(isnan(alpha_h(iVoltage,iTimestep))) alpha_h(iVoltage,iTimestep) = 1; end
+		beta_h(iVoltage,iTimestep) = 1/(exp(-(Vm_current+35)/(10))+1);
+		if(isnan(beta_h(iVoltage,iTimestep))) beta_h(iVoltage,iTimestep) = 1; end
+		
+		%nmh dots
+		ndot(iVoltage,iTimestep) = alpha_n(iVoltage,iTimestep) .* (1-n(iVoltage,iTimestep)) - beta_n(iVoltage,iTimestep) .* n(iVoltage,iTimestep);
+		mdot(iVoltage,iTimestep) = alpha_m(iVoltage,iTimestep) .* (1-m(iVoltage,iTimestep)) - beta_m(iVoltage,iTimestep) .* m(iVoltage,iTimestep);
+		hdot(iVoltage,iTimestep) = alpha_h(iVoltage,iTimestep) .* (1-h(iVoltage,iTimestep)) - beta_h(iVoltage,iTimestep) .* h(iVoltage,iTimestep);
+		
+		if(iTimestep < nTimesteps)
+			n(iVoltage,iTimestep+1) = deltat * ndot(iVoltage,iTimestep) + n(iVoltage,iTimestep);
+			m(iVoltage,iTimestep+1) = deltat * mdot(iVoltage,iTimestep) + m(iVoltage,iTimestep);
+			h(iVoltage,iTimestep+1) = deltat * hdot(iVoltage,iTimestep) + h(iVoltage,iTimestep);
+		end    
+	end
+end
+
+\end{lstlisting}
+
+
+\end{document}
+

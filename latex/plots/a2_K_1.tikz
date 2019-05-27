@@ -1,0 +1,47 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+xmin=0,
+xmax=10,
+xlabel style={font=\color{white!15!black}},
+xlabel={Time (ms)},
+ymin=0,
+ymax=0.9,
+ylabel style={font=\color{white!15!black}},
+ylabel={Rate constants (1/ms)},
+axis background/.style={fill=white},
+legend style={legend cell align=left, align=left, draw=white!15!black},
+legend pos = north east,
+]
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+0	0.0581976706869334\\
+0.300000000000001	0.0581976706869334\\
+0.3005	0.850172983310291\\
+7.3	0.850172983310291\\
+7.3005	0.00225694792145958\\
+10	0.00225694792145958\\
+};
+\addlegendentry{$\alpha_n$}
+
+\addplot [color=red]
+  table[row sep=crcr]{%
+0	0.125\\
+0.300000000000001	0.125\\
+0.3005	0.0381228460888821\\
+7.3	0.0381228460888821\\
+7.3005	0.219381832120037\\
+10	0.219381832120037\\
+};
+\addlegendentry{$\beta_n$}
+
+\end{axis}
+\end{tikzpicture}%
